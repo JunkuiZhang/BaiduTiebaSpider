@@ -12,6 +12,8 @@ class Tiezi:
 		__data = __conn.text
 		self.soup = BeautifulSoup(__data, "html.parser")
 
+	__slots__ = ("url", "path", "soup")
+
 	def get_maxpage(self):
 		__pagenum = self.soup.find_all("span", class_ = "red")[1]
 		__maxpage = re.findall(">([0-9]+)<", str(__pagenum))[0]
